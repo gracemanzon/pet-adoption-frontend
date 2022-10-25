@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { PetsShow } from "./PetsShow";
 import { Modal } from "./Modal";
+import { PetsNew } from "./PetsNew";
 
 export function Home() {
   const [pets, setPets] = useState([]);
@@ -27,11 +28,19 @@ export function Home() {
     setIsPetsShowVisible(false);
   };
 
+  const handlePetCreate = (params) => {
+    axios.post("http://localhost:3000/pets.json", params).then((response) => {
+      const newPet = response.data;
+      setPets([...pets, newPet]);
+    });
+  };
+
   useEffect(handlePetsIndex, []);
 
   return (
     <div>
       <h2>Home</h2>
+      <PetsNew onCreatePet={handlePetCreate} />
       <PetsIndex pets={pets} onSelectPet={handlePetShow} />
       <Modal show={isPetsShowVisible} onClose={handlePetHide}>
         <PetsShow pet={currentPet} />
