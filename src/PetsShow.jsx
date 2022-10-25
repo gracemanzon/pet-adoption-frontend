@@ -8,6 +8,10 @@ export function PetsShow(props) {
     event.target.reset();
   };
 
+  const handleClick = () => {
+    props.onDestroyPet(props.pet);
+  };
+
   return (
     <div>
       <div id="pets-show">
@@ -48,6 +52,9 @@ export function PetsShow(props) {
           </div>
           <button type="submit">Update Pet</button>
         </form>
+      </div>
+      <div id="pets-delete">
+        <button onClick={handleClick}>Delete Pet</button>
       </div>
     </div>
   );

@@ -51,6 +51,13 @@ export function Home() {
     });
   };
 
+  const handlePetDestroy = (pet) => {
+    axios.delete("http://localhost:3000/pets/" + pet.id + ".json").then((response) => {
+      setPets(pets.filter((p) => p.id !== pet.id));
+      handlePetHide();
+    });
+  };
+
   useEffect(handlePetsIndex, []);
 
   return (
@@ -59,7 +66,7 @@ export function Home() {
       <PetsNew onCreatePet={handlePetCreate} />
       <PetsIndex pets={pets} onSelectPet={handlePetShow} />
       <Modal show={isPetsShowVisible} onClose={handlePetHide}>
-        <PetsShow pet={currentPet} onUpdatePet={handlePetUpdate} />
+        <PetsShow pet={currentPet} onUpdatePet={handlePetUpdate} onDestroyPet={handlePetDestroy} />
       </Modal>
     </div>
   );
