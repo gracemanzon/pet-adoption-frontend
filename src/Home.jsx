@@ -35,6 +35,22 @@ export function Home() {
     });
   };
 
+  const handlePetUpdate = (params) => {
+    axios.patch("http://localhost:3000/pets/" + currentPet.id + ".json", params).then((response) => {
+      const updatedPet = response.data;
+      setCurrentPet(updatedPet);
+      setPets(
+        pets.map((pet) => {
+          if (pet.id === updatedPet.id) {
+            return updatedPet;
+          } else {
+            return pet;
+          }
+        })
+      );
+    });
+  };
+
   useEffect(handlePetsIndex, []);
 
   return (
@@ -43,7 +59,7 @@ export function Home() {
       <PetsNew onCreatePet={handlePetCreate} />
       <PetsIndex pets={pets} onSelectPet={handlePetShow} />
       <Modal show={isPetsShowVisible} onClose={handlePetHide}>
-        <PetsShow pet={currentPet} />
+        <PetsShow pet={currentPet} onUpdatePet={handlePetUpdate} />
       </Modal>
     </div>
   );
