@@ -6,9 +6,7 @@ export function PetsIndex(props) {
         <div key={pet.id} id="pets-index" className="pets-index">
           <img src={pet.image} alt={pet.name} />
           <h3>{pet.name}</h3>
-          <p>Age: {pet.age} years</p>
-          <p> Breed: {pet.breed}</p>
-          <p>About: {pet.description}</p>
+          <button onClick={() => props.onSelectPet(pet)}>Read More</button>
         </div>
       ))}
     </div>
