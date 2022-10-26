@@ -69,6 +69,35 @@ button:focus-visible {
   }
 } */
 
+#root {
+  font-family: Geneva, Tahoma, Verdana, sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+  text-align: center;
+  background-image: url(/src/assets/pawprint.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#pets-index {
+  margin: 8em 0;
+}
+
+.pets-index {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 2em;
+}
+
+.custom-card {
+  margin-bottom: 1em;
+}
+
 .pets-index img {
-  width: 300px;
+  width: 100%;
+  height: 15em;
 }

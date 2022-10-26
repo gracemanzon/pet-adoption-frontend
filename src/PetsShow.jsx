@@ -23,7 +23,7 @@ export function PetsShow(props) {
       </div>
 
       <div id="pets-update">
-        <h2>Add a Pet:</h2>
+        <h2>Update Pet:</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <p>

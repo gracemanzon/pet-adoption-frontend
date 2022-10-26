@@ -12,7 +12,7 @@
 .modal-main {
   position: fixed;
   background: white;
-  width: 80%;
+  width: auto;
   height: auto;
   top: 50%;
   left: 50%;
@@ -30,5 +30,5 @@
 }
 
 .modal-main img {
-  width: 300px;
+  width: 55%;
 }

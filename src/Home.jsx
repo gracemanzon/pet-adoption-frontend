@@ -62,12 +62,11 @@ export function Home() {
 
   return (
     <div>
-      <h2>Home</h2>
-      <PetsNew onCreatePet={handlePetCreate} />
       <PetsIndex pets={pets} onSelectPet={handlePetShow} />
       <Modal show={isPetsShowVisible} onClose={handlePetHide}>
         <PetsShow pet={currentPet} onUpdatePet={handlePetUpdate} onDestroyPet={handlePetDestroy} />
       </Modal>
+      <PetsNew onCreatePet={handlePetCreate} />
     </div>
   );
 }

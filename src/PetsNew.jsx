@@ -8,35 +8,36 @@ export function PetsNew(props) {
 
   return (
     <div id="pets-new">
-      <h2>Add a Pet:</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <p>
-            Pet Name: <input name="name" type="text" />
-          </p>
+      <div className="card" style={{ width: "32rem" }}>
+        <div className="card-body">
+          <h2 className="card-title">Add a Pet:</h2>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <p>Pet Name:</p>
+              <input name="name" type="text" />
+            </div>
+            <div>
+              <p>Image:</p>
+              <input name="image" type="text" />
+            </div>
+            <div>
+              <p>Age:</p>
+              <input name="age" type="text" />
+            </div>
+            <div>
+              <p>Breed:</p>
+              <input name="breed" type="text" />
+            </div>
+            <div>
+              <p>About:</p>
+              <input name="description" type="text" />
+            </div>
+            <button className="btn btn-outline-secondary" type="submit">
+              Add Pet
+            </button>
+          </form>
         </div>
-        <div>
-          <p>
-            Image: <input name="image" type="text" />
-          </p>
-        </div>
-        <div>
-          <p>
-            Age: <input name="age" type="text" />
-          </p>
-        </div>
-        <div>
-          <p>
-            Breed: <input name="breed" type="text" />
-          </p>
-        </div>
-        <div>
-          <p>
-            About: <input name="description" type="text" />
-          </p>
-        </div>
-        <button type="submit">Add Pet</button>
-      </form>
+      </div>
     </div>
   );
 }
