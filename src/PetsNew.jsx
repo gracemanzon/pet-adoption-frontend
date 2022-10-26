@@ -1,11 +1,19 @@
-import { Link } from "react-router-dom";
+import axios from "axios";
 
-export function PetsNew(props) {
+export function PetsNew() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    props.onCreatePet(params);
+    handlePetCreate(params);
     event.target.reset();
+  };
+
+  const handlePetCreate = (params) => {
+    axios.post("http://localhost:3000/pets.json", params).then((response) => {
+      const newPet = response.data;
+      console.log("New Pet Added", newPet);
+      window.location.href = "/";
+    });
   };
 
   return (

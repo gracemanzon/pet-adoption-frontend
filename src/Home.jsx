@@ -28,13 +28,6 @@ export function Home() {
     setIsPetsShowVisible(false);
   };
 
-  const handlePetCreate = (params) => {
-    axios.post("http://localhost:3000/pets.json", params).then((response) => {
-      const newPet = response.data;
-      setPets([...pets, newPet]);
-    });
-  };
-
   const handlePetUpdate = (params) => {
     axios.patch("http://localhost:3000/pets/" + currentPet.id + ".json", params).then((response) => {
       const updatedPet = response.data;
@@ -66,7 +59,6 @@ export function Home() {
       <Modal show={isPetsShowVisible} onClose={handlePetHide}>
         <PetsShow pet={currentPet} onUpdatePet={handlePetUpdate} onDestroyPet={handlePetDestroy} />
       </Modal>
-      <PetsNew onCreatePet={handlePetCreate} />
     </div>
   );
 }

@@ -50,11 +50,15 @@ export function PetsShow(props) {
               About: <input defaultValue={props.pet.description} name="description" type="text" />
             </p>
           </div>
-          <button type="submit">Update Pet</button>
+          <button type="submit" className="btn btn-outline-secondary">
+            Update Pet
+          </button>
         </form>
       </div>
       <div id="pets-delete">
-        <button onClick={handleClick}>Delete Pet</button>
+        <button onClick={handleClick} className="btn btn-outline-secondary">
+          Delete Pet
+        </button>
       </div>
     </div>
   );
