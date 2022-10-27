@@ -1,8 +1,24 @@
 import { Link } from "react-router-dom";
+import { Modal } from "./Modal";
+import { PetsNew } from "./PetsNew";
+import { useState } from "react";
 
 export function Header() {
+  const [isPetsNewVisible, setIsPetsNewVisible] = useState(false);
+
+  const handlePetsNewShow = () => {
+    setIsPetsNewVisible(true);
+  };
+
+  const handlePetsNewHide = () => {
+    setIsPetsNewVisible(false);
+  };
+
   return (
     <nav className="navbar navbar-dark sticky-top bg-dark">
+      <Modal show={isPetsNewVisible} onClose={handlePetsNewHide}>
+        <PetsNew onPetsNewClose={handlePetsNewHide} />
+      </Modal>
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           <h1>Adopt Today 💟</h1>
@@ -30,10 +46,10 @@ export function Header() {
                 About
               </Link>
             </li>
-            <li>
-              <Link className="nav-link" to="/pets/new">
-                Add a New Pet
-              </Link>
+            <li className="nav-item">
+              <a className="nav-link" aria-current="page" href="#" onClick={handlePetsNewShow}>
+                Add a Pet
+              </a>
             </li>
           </ul>
         </div>
